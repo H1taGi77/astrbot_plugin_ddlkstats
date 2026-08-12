@@ -27,10 +27,33 @@ class DdlockstatsPlugin(Star):
                         yield event.plain_result(f"查询失败（HTTP {resp.status}）！检查一下账号ID对不对喵~")
                         return
 
-                    data = await resp.json()
+                    matches = await resp.json()
 
             if not matches:
-                
+                yield event.plain_result("这个账号空空的喵")
+                return
+
+            lines = []
+            for m in matches[:5]:
+                minutes = m["match_duration_s"] // 60
+                seconds = m["match_duration_s"] % 60
+
+                if m["player_match_outcome"] == 1:
+                    win = "得胜😍"
+                else:
+                    win = "败北😭"
+
+                time_obj = datetime.datetime.fromtimestamp(m["start_time"])
+                date = time_obj.strftime("%m-%d %H:%M")
+
+                line = (
+                    f"{date} | 英雄{m['hero_id']} | "
+                    f"{m['player_kills']}/{m['player_deaths']}/{m['player_assists']}"
+                    f" | {win} | {minutes}分{seconds}秒 | 经济{m['net_worth']}"
+                )
+                lines.append(line)
+
+            yield event.plain_result("\n".join(lines))
 
         except Exception as e:
             logger.error(f"查询出错：{e}")
