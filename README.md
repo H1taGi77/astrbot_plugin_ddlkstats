@@ -1,14 +1,23 @@
-# astrbot-plugin-helloworld
+# astrbot-plugin-ddlkstats
 
-AstrBot 插件模板 / A template plugin for AstrBot plugin feature
+Deadlock 战绩查询插件
 
-> [!NOTE]
-> This repo is just a template of [AstrBot](https://github.com/AstrBotDevs/AstrBot) Plugin.
-> 
-> [AstrBot](https://github.com/AstrBotDevs/AstrBot) is an agentic assistant for both personal and group conversations. It can be deployed across dozens of mainstream instant messaging platforms, including QQ, Telegram, Feishu, DingTalk, Slack, LINE, Discord, Matrix, etc. In addition, it provides a reliable and extensible conversational AI infrastructure for individuals, developers, and teams. Whether you need a personal AI companion, an intelligent customer support agent, an automation assistant, or an enterprise knowledge base, AstrBot enables you to quickly build AI applications directly within your existing messaging workflows.
+## 功能
 
-# Supports
+- `/调查 &lt;玩家名&gt;` — 查询玩家对局历史（基于 deadlock-api.com，无需配置）
+- 高级分析：PP Score、段位徽章、MVP 评分（基于 statlocker.gg，需配置 API key）
 
-- [AstrBot Repo](https://github.com/AstrBotDevs/AstrBot)
-- [AstrBot Plugin Development Docs (Chinese)](https://docs.astrbot.app/dev/star/plugin-new.html)
-- [AstrBot Plugin Development Docs (English)](https://docs.astrbot.app/en/dev/star/plugin-new.html)
+## 安装
+
+1. 将本插件放入 AstrBot 的 `data/plugins` 目录
+2. 重启 AstrBot
+
+## 配置
+
+在 AstrBot WebUI → 插件配置中填写：
+
+- `statlocker_api_key`：你的 Statlocker API key（可选，留空则只使用基础查询）
+
+申请地址：https://statlocker.gg/api
+
+## 使用示例
