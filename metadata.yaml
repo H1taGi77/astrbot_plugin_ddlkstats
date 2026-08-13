@@ -1,6 +1,6 @@
 name: astrbot_plugin_ddlkstats
-display_name: ddlkstats
+display_name: Deadlock 死锁战绩查询
 desc: 死锁 战绩查询
-version: v0.1.0
+version: v0.2.0
 author: H1taGi77
 repo: https://github.com/H1taGi77/astrbot_plugin_ddlkstats
