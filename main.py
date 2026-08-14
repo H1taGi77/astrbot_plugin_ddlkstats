@@ -6,7 +6,7 @@ import aiohttp
 import json
 import datetime
 
-@register("astrbot_plugin_ddlkstats", "H1taGi77", "死锁战绩查询", "v0.3.1")
+@register("astrbot_plugin_ddlkstats", "H1taGi77", "死锁战绩查询", "v0.3.2")
 class DdlockstatsPlugin(Star):
     """死锁战绩查询"""
 
