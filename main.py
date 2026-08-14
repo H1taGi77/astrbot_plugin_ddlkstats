@@ -101,9 +101,9 @@ class DdlockstatsPlugin(Star):
 
                 # 最近场次数据格式
                 match_line = (
-                    f"{date} | {player_hero} | "
+                    f"{date} {player_hero} "
                     f"{m['player_kills']}/{m['player_deaths']}/{m['player_assists']}"
-                    f" | {win} | {minutes}分{seconds}秒 | 经济{m['net_worth']}"
+                    f" {win} {minutes}分{seconds}秒 经济{m['net_worth']}"
                 )
                 matches_lines.append(match_line)
 
